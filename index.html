@@ -3,8 +3,52 @@
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
+		<script src="js/vue.js"></script>
 	</head>
 	<body>
+		<div id="box">
+			<input type="text" v-model.number="n1" />
+			<input type="text" v-model="index" />
+			<input type="text" v-model.number="n2" />
+			<input type="button" value="计算" v-on:click="dw" />
+			<div>{{n3}}</div>
+			
+
+		</div>
 		
+		<script>
+			var vm=new Vue({
+				el:"#box",
+				data:{
+				    n1:"",
+				    n2:"",
+				    n3:"",
+				    n4:"",
+				    index:""
+				},
+				methods:{
+					//这里是函数得用分号，不能用逗号。
+					dw(){
+						if(this.index==="+"){
+							
+							this.n3=this.n1+this.n2;
+						}
+						if(this.index==="*"){
+							
+							this.n3=this.n1*this.n2;
+						}
+						if(this.index==="/"){
+							var a="";
+						this.n3=(this.n1/this.n2).toFixed(2)
+						}
+						if(this.index==="-"){
+						var b="";
+						this.n3=this.n1-this.n2;	
+						}
+					}
+				}
+				
+			})
+		</script>
 	</body>
 </html>

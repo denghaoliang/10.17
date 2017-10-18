@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				background: red;
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<script type="text/javascript" src="js/vue.js" ></script>
+	<body>                                  <!--这里样式的隔开要用逗号-->
+		<div id="box" :style="{'width':w+'px','height':h+'px'}">
+			<input type="text" v-model.numder="w"/>
+			<input type="text" v-model.numder="h"/>
+			
+		</div>
+		<script>
+			new Vue({
+				el:"#box",
+				data:{
+					w:"",
+					h:"",
+				},
+//				methods:{
+//					if(isNaN(w)){
+//						alert("请输入数值")
+//						return
+//					}
+//				}
+				
+				
+				
+			})
+			
+			
+		</script>
+	</body>
+</html>

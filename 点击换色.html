@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.co{
+				color: red;
+			}
+			li{
+				float: left;
+				width: 200px;
+			}
+			.comtent{
+				clear: both;
+				width: 500px;
+				height: 150px;
+				border: 1px solid #000;
+			}
+		</style>
+	<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	
+	<body>
+		<div id="box">
+			<ul>
+				<li v-for="(x,h) in lis" v-bind:class="{'co':h==ind}"  @click="dw(h)">{{x}}</li>
+			</ul>
+			<div class="comtent" v-for="(x,k) in content" v-show="k==ind">{{x}}</div>
+			                             <!--v-show:默认为true，不会出现display：none。-->
+		</div>
+		<script>
+			new Vue({
+				el:"#box",
+				data:{
+					lis:["aa","bb","cc","dd","ee"],
+					content:["111","222","333","444","555"],
+					ind:0
+				},
+				methods:{
+					dw(h){
+						this.ind=h;
+						console.log(h)
+
+					}
+				}
+				
+				
+			})
+			
+		</script>
+	</body>
+</html>

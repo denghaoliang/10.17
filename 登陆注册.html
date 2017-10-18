@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<style>
+			b{cursor: pointer;}
+			.color1{color: green;}
+			.color2{color: red;}
+		</style>
+	</head>
+	<body>
+		<div id="box" class="box">
+			<p><span :class="{'color1':name1,'color2':name2}">{{zhanghao}}</span><input type="text" v-model="z" placeholder="请输入账号" v-show="flag" /></p>
+		   <p><span :class="{'color1':name1,'color2':name2}">{{mima}}</span><input type="text" v-model="m" placeholder="请输入密码" v-show="flag" /></p>
+
+			<p><input type="button" :value=denglu v-model="denglu" @click="dl"/></p>
+
+			
+		</div>
+		
+	</body>
+	 <script>
+	 	new Vue({
+	 		el:"#box",
+	 		data:{
+	 			name1:true,
+	 			name2:false,
+	 			zhanghao:"请输入登陆账号",
+	 			mima:"请输入登陆密码",
+	 			denglu:"登陆",
+	 			z:"",
+	 			m:"",
+	 			n:0,
+	 			flag:true
+	 		},
+//	 		updated(){					
+//					this.z=this.z.substr(0,0);
+//				
+//				},
+	 		methods:{
+	 			dl(){
+	 				if(this.z==""||this.m==""){
+	 					alert("账号/密码不能为空")
+	 					return
+	 				}
+	 			    if(	this.z=="abc"&&this.m=="123"){
+	 			    	alert("登陆成功")
+	 					this.z=""
+	 					this.m=""
+	 					return
+	 					
+	 				}
+	 			    if(this.z!="abc"||this.m!="123"){
+	 					this.n+=1
+	 					alert("登陆失败请重新输入")
+	 					console.log(this.n)
+	 				}
+	 			    if(this.n==3){
+                         alert("已经连续输错三次密码，您的卡已经被吞")
+                         this.flag=false
+                         return
+	 			    }
+	 			    
+	 			    
+	 			}
+	 			
+	 			
+	 			
+	 			
+	 			
+	 		}
+	 		
+	 		
+	 		
+	 	})
+	 	
+	 </script>
+	
+</html>
